@@ -31,36 +31,41 @@ class StartScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 60),
-                ElevatedButton(
+                OutlinedButton(
                   style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 50, vertical: 10),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20))),
+
+                  child: const Text(
+                    'LOGIN',
+                    style: TextStyle(fontSize: 24, color:Colors.green),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, LoginScreen.id);
+                  },
+                ),
+                const SizedBox(height: 20),
+                OutlinedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 50, vertical: 10),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20))),
                   child: const Text(
                     'CREATE ACCOUNT',
-                    style: TextStyle(fontSize: 24),
+                    style: TextStyle(fontSize: 24, color:Colors.green),
                   ),
                   onPressed: () {
                     Navigator.pop(context);
                     Navigator.pushNamed(context, RegisterScreen.id);
                   },
                 ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 50, vertical: 10),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20))),
-                  child: const Text(
-                    'LOGIN',
-                    style: TextStyle(fontSize: 24),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
-                  },
-                ),
+
+
               ],
             ),
           ),

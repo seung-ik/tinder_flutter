@@ -60,9 +60,10 @@ class MyApp extends StatelessWidget {
             splashColor: Colors.transparent,
             padding: EdgeInsets.symmetric(vertical: 14),
             buttonColor: kAccentColor,
-            textTheme: ButtonTextTheme.accent,
+            textTheme: ButtonTextTheme.normal,
             highlightColor: Color.fromRGBO(0, 0, 0, .3),
             focusColor: Color.fromRGBO(0, 0, 0, .3),
+
           ),
         ),
         initialRoute: SplashScreen.id,

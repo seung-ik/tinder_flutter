@@ -15,7 +15,7 @@ class AppIconTitle extends StatelessWidget {
         ),
         const SizedBox(width: 5.0),
         Text(
-          'lorem',
+          'tinder',
           style: Theme.of(context).textTheme.headline2,
         )
       ],
