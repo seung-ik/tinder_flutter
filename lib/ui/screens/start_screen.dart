@@ -33,15 +33,24 @@ class StartScreen extends StatelessWidget {
                 const SizedBox(height: 60),
                 OutlinedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      minimumSize: const Size.fromHeight(50),                      backgroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 50, vertical: 10),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20))),
-
-                  child: const Text(
-                    'LOGIN',
-                    style: TextStyle(fontSize: 24, color:Colors.green),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset('images/google_logo.png', width:30, height:30, fit: BoxFit.fill ),
+                      const Text(
+                        'GOOGLE LOGIN',
+                        style: TextStyle(fontSize: 20, color:Colors.green),
+                      ),
+                      Opacity(
+                        opacity: 0.0,
+                          child: Image.asset('images/google_logo.png', width:20, height:20, fit: BoxFit.fill),
+                      )
+                    ],
                   ),
                   onPressed: () {
                     Navigator.pushNamed(context, LoginScreen.id);
@@ -50,14 +59,32 @@ class StartScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 OutlinedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      minimumSize: const Size.fromHeight(50),                      backgroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 50, vertical: 10),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20))),
+
+                  child: const Text(
+                    'EMAIL LOGIN',
+                    style: TextStyle(fontSize: 20, color:Colors.green),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, LoginScreen.id);
+                  },
+                ),
+                const SizedBox(height: 20),
+                OutlinedButton(
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size.fromHeight(50),
+                      backgroundColor: Colors.orange,
                       padding: const EdgeInsets.symmetric(
                           horizontal: 50, vertical: 10),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20))),
                   child: const Text(
                     'CREATE ACCOUNT',
-                    style: TextStyle(fontSize: 24, color:Colors.green),
+                    style: TextStyle(fontSize: 20, color:Colors.white),
                   ),
                   onPressed: () {
                     Navigator.pop(context);
