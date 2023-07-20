@@ -3,11 +3,56 @@ import 'package:tinder_new/util/constants.dart';
 import 'package:tinder_new/ui/widgets/app_image_with_text.dart';
 import 'package:tinder_new/ui/screens/login_screen.dart';
 import 'package:tinder_new/ui/screens/register_screen.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import 'google_logged_in_page.dart';
+
+class GoogleSignInApi {
+  static final _googleSignIn = GoogleSignIn();
+
+  static Future<GoogleSignInAccount?> login() {
+    return _googleSignIn.signIn();
+  }
+
+  static Future logout() async {
+    await FirebaseAuth.instance.signOut();
+    await _googleSignIn.disconnect();
+  }
+
+}
 
 class StartScreen extends StatelessWidget {
   static const String id = 'start_screen';
 
   const StartScreen({super.key});
+
+  Future<UserCredential?> loginWithGoogle(BuildContext context) async {
+    GoogleSignInAccount? user = await GoogleSignInApi.login();
+
+    GoogleSignInAuthentication? googleAuth = await user!.authentication;
+    var credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken
+    );
+
+    UserCredential? userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+
+    if (userCredential != null) {
+      print('로그인 성공 === Google');
+      print(userCredential);
+
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => GoogleLoggedInPage(userCredential: userCredential)
+      ));
+    } else {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('로그인 실패 === Google')
+      ));
+    }
+
+    return userCredential;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +97,9 @@ class StartScreen extends StatelessWidget {
                       )
                     ],
                   ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
+                  onPressed: () async {
+                    await loginWithGoogle(context);
+
                   },
                 ),
                 const SizedBox(height: 20),
