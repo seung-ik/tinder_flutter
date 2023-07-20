@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fensterseifer.tinder_new">
+    package="com.fensterseifer.tinder_ik">
    <application
         android:label="tinder_new"
         android:name="${applicationName}"
