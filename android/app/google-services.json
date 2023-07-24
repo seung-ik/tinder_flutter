@@ -30,34 +30,21 @@
           }
         },
         {
-          "client_id": "770023604120-fe981hodc5jq9g3e4rflgd21gtqi7575.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
+          "client_id": "770023604120-hkc03dod7nde8jahmc2sd3aleo2hp8fp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fensterseifer.tinder_ik",
+            "certificate_hash": "bf31a43f754f7ee552dc410e3c0099f53a4311c7"
+          }
+        },
         {
-          "current_key": "AIzaSyCWp7MWmPgGkJ8xpiGGwL_HHVMByNSlpVQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "770023604120-3aemp2d175ps6vgcgfnlgfli7rvssr87.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:770023604120:android:1b742172497c75ce4cb5ed",
-        "android_client_info": {
-          "package_name": "com.fensterseifer.tinder_new"
-        }
-      },
-      "oauth_client": [
+          "client_id": "770023604120-o9fpn34lfd6jtf3hoe8f480r6r7q6pbg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fensterseifer.tinder_ik",
+            "certificate_hash": "df55ee4926237190c5fe4e12a0cb13b1064d8c90"
+          }
+        },
         {
           "client_id": "770023604120-fe981hodc5jq9g3e4rflgd21gtqi7575.apps.googleusercontent.com",
           "client_type": 3

@@ -51,9 +51,25 @@ class ProfileScreenState extends State<ProfileScreen> {
                             Text(
                                 '${userSnapshot.data!.name}, ${userSnapshot.data!.age}',
                                 style: Theme.of(context).textTheme.headlineMedium),
-                            const SizedBox(height: 40),
+                            const SizedBox(height: 20),
                             getBio(userSnapshot.data!, userProvider),
-                            Expanded(child: Container()),
+                            const SizedBox(height: 20),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('My Gender', style: Theme.of(context).textTheme.headline4),
+                                Text(userSnapshot.data?.gender as String, style: Theme.of(context).textTheme.headline4),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('Filter Gender', style: Theme.of(context).textTheme.headline4),
+                                Text(userSnapshot.data?.wantGender as String, style: Theme.of(context).textTheme.headline4),
+                              ],
+                            ),
+                            // Expanded(child: Container()),
+                            const SizedBox(height: 50),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   padding: const EdgeInsets.symmetric(

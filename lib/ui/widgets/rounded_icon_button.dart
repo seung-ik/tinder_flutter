@@ -16,7 +16,7 @@ class RoundedIconButton extends StatelessWidget {
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       minWidth: 0,
       elevation: 5,
-      color: Color.fromARGB(255, 0, 0, 0),
+      color: Color.fromARGB(255, 255, 255, 255),
       onPressed: () {
         onPressed.call();
       },

@@ -7,6 +7,7 @@ import 'package:tinder_new/data/model/user_registration.dart';
 import 'package:tinder_new/data/provider/user_provider.dart';
 import 'package:tinder_new/ui/screens/register_sub_screens/add_photo_screen.dart';
 import 'package:tinder_new/ui/screens/register_sub_screens/age_screen.dart';
+import 'package:tinder_new/ui/screens/register_sub_screens/sexual_screen.dart';
 import 'package:tinder_new/ui/screens/register_sub_screens/email_and_password_screen.dart';
 import 'package:tinder_new/ui/screens/register_sub_screens/name_screen.dart';
 import 'package:tinder_new/ui/screens/top_navigation_screen.dart';
@@ -28,7 +29,7 @@ class RegisterScreen extends StatefulWidget {
 class RegisterScreenState extends State<RegisterScreen> {
   final UserRegistration _userRegistration = UserRegistration();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
-  final int _endScreenIndex = 3;
+  final int _endScreenIndex = 4;
   int _currentScreenIndex = 0;
   bool _isLoading = false;
   late UserProvider _userProvider;
@@ -93,7 +94,21 @@ class RegisterScreenState extends State<RegisterScreen> {
         return EmailAndPasswordScreen(
             emailOnChanged: (value) => {_userRegistration.email = value},
             passwordOnChanged: (value) => {_userRegistration.password = value});
-      default:
+      case 4:
+        return SexualScreen(
+            selectedGender: _userRegistration.gender,
+            selectedWantGender: _userRegistration.wantGender,
+            myGenderOnChanged: (String? value) {
+              setState(() {
+                _userRegistration.gender = value ?? "male";
+              });
+            },
+            myWantGenderOnChanged: (String? value) {
+              setState(() {
+                _userRegistration.wantGender = value ?? "male";
+              });
+            });
+        default:
         return Container();
     }
   }
@@ -106,6 +121,8 @@ class RegisterScreenState extends State<RegisterScreen> {
         return (_userRegistration.age >= 13 && _userRegistration.age <= 120);
       case 2:
         return _userRegistration.localProfilePhotoPath.isNotEmpty;
+      case 3:
+        return true;
       default:
         return false;
     }

@@ -36,6 +36,7 @@ class UserProvider extends ChangeNotifier {
 
   Future<Response> registerUser(UserRegistration userRegistration,
       GlobalKey<ScaffoldState> errorScaffoldKey) async {
+    print(userRegistration);
     Response<dynamic> response = await _authSource.register(
         userRegistration.email, userRegistration.password);
     if (response is Success<UserCredential>) {
@@ -49,7 +50,10 @@ class UserProvider extends ChangeNotifier {
             id: id,
             name: userRegistration.name,
             age: userRegistration.age,
-            profilePhotoPath: profilePhotoUrl);
+            profilePhotoPath: profilePhotoUrl,
+            gender: userRegistration.gender,
+            wantGender: userRegistration.wantGender
+        );
         _databaseSource.addUser(user);
         SharedPreferencesUtil.setUserId(id);
         _user = _user;
