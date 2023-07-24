@@ -5,18 +5,24 @@ class AppUser {
   String name;
   int age;
   String profilePhotoPath;
+  String gender;
+  String wantGender;
   String bio = "";
 
   AppUser(
       {required this.id,
       required this.name,
       required this.age,
-      required this.profilePhotoPath});
+      required this.profilePhotoPath,
+      required this.gender,
+      required this.wantGender});
 
   AppUser.fromSnapshot(DocumentSnapshot snapshot) :
     id = snapshot['id'],
     name = snapshot['name'],
     age = snapshot['age'],
+    gender = snapshot['gender'],
+    wantGender = snapshot['wantGender'],
     profilePhotoPath = snapshot['profile_photo_path'],
     bio = snapshot.get('bio') ?? '';
 
@@ -26,7 +32,9 @@ class AppUser {
       'name': name,
       'age': age,
       'profile_photo_path': profilePhotoPath,
-      'bio': bio
+      'bio': bio,
+      'gender': gender,
+      'wantGender': wantGender
     };
   }
 }
